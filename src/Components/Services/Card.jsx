@@ -1,9 +1,9 @@
 import React from 'react';
 import { BsStars } from 'react-icons/bs';
-import ""
 
 
-const App = () => {
+
+const Card = () => {
   return (
     <div className="bg-white font-sans text-gray-800">
       <ServicesSection />
@@ -106,4 +106,4 @@ const ServicesSection = () => {
   );
 };
 
-export default App;
+export default Card;
