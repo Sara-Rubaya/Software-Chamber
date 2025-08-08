@@ -4,6 +4,7 @@ import CountDown from '../CountDown/CountDown';
 import Card from '../Services/Card';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 import Companies from '../Companies/Companies';
+import Marque from '../Marque/Marque';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
           <Card></Card>
           <WhyChooseUs></WhyChooseUs>
           <Companies></Companies>
+          <Marque></Marque>
         </div>
     );
 };
