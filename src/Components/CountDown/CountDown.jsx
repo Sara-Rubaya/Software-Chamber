@@ -3,7 +3,7 @@ import "./Font.css";
 import { BsStars } from "react-icons/bs";
 import { FaArrowTrendDown } from "react-icons/fa6";
 
-const ImpactSection = () => {
+const CountDown = () => {
   const [techPartners, setTechPartners] = useState(0);
   const [projectsCompleted, setProjectsCompleted] = useState(0);
   const [satisfiedCustomers, setSatisfiedCustomers] = useState(0);
@@ -88,7 +88,7 @@ const ImpactSection = () => {
         {/* Middle: Image */}
         <div
           className="flex justify-center items-center"
-          style={{ marginLeft: "-50px" }} // 20px left shift
+          style={{ marginLeft: "-50px" }}
         >
           <img
             src="/src/assets/Rectangle 6.png"
@@ -98,7 +98,7 @@ const ImpactSection = () => {
           />
         </div>
 
-        {/* Right: Numbered Features */}
+        
         <div className="flex flex-col gap-6 justify-center">
           {[
             {
@@ -141,4 +141,4 @@ const ImpactSection = () => {
   );
 };
 
-export default ImpactSection;
+export default CountDown;
