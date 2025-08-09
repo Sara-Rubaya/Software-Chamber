@@ -4,8 +4,17 @@ import { FaArrowRight, FaBars } from 'react-icons/fa';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleSmoothScroll = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMenuOpen(false); // Close dropdown after click
+  };
+
   return (
-    <nav className="w-full relative flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#071013] to-[#0f1e24] text-white shadow-lg z-50">
+    <nav className="w-full relative flex items-center justify-between px-6 py-4 bg-black text-white shadow-lg z-50">
       {/* Logo */}
       <div className="flex items-center space-x-2">
         <img
@@ -14,7 +23,7 @@ const Navbar = () => {
           className="w-10 h-10 rounded-md shadow-md"
         />
         <div className="leading-tight">
-          <h4 className=" font-semibold">Software</h4>
+          <h4 className="font-semibold">Software</h4>
           <p className="text-xs tracking-wide text-gray-300">Chamber</p>
         </div>
       </div>
@@ -41,18 +50,26 @@ const Navbar = () => {
             <a
               href="#login"
               className="block px-4 py-2 hover:bg-gray-700 transition"
+              onClick={(e) => handleSmoothScroll(e, 'login')}
             >
               Login
             </a>
-            <a
-              href="#services"
-              className="block px-4 py-2 hover:bg-gray-700 transition"
-            >
-              Services
-            </a>
+           <a
+  href="#services"
+  onClick={(e) => {
+    e.preventDefault();
+    const el = document.getElementById('services');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="block px-4 py-2 hover:bg-gray-700 transition"
+>Services
+</a>
             <a
               href="#faq"
               className="block px-4 py-2 hover:bg-gray-700 transition"
+              onClick={(e) => handleSmoothScroll(e, 'faq')}
             >
               FAQ
             </a>

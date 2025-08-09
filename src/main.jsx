@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import Root from './Layout/Root.jsx';
 import Home from './Components/Home/Home.jsx';
+import FAQ from './Components/Faq/FAQ.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         index: true,
         Component: Home
       },
+      {
+        path:'faq',
+        Component: FAQ
+      }
       
 
     ]

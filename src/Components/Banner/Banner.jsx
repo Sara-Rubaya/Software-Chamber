@@ -1,142 +1,262 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Aos from "aos";
+import React, { useState, useEffect, useRef } from 'react';
 
-const cards = [
+import img1 from '../../assets/Illustration (5).png';
+import img2 from '../../assets/Illustration (6).png';
+import img3 from '../../assets/Illustration (7).png';
+import { LuCircleArrowOutUpRight } from 'react-icons/lu';
+
+// Hook for fade-in animation delay
+const useIsVisible = (delay = 0) => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+  return isVisible;
+};
+
+const badges = [
+  { text: "Smarter idea, instant soultions", position: "top-60 left-0 -translate-x-40" },
+  { text: "Website Devolopement", position: "top-90 left-90 -translate-y-1" },
+  { text: "Mobile App Development", position: "top-0 -left-40" },
+  { text: "UI/UX Engineering", position: "top-10 -right-20 -translate-y-1/2" },
+  { text: "Software Services", position: "top-60 -right-20" },
+];
+
+const serviceCards = [
   {
-    title: "Our Professional Training Platform",
-    description: "Stream and broadcast videos in crystal-clear quality.",
-    img: "/img1.jpg",
+    id: 1,
+    title: "Our Professional Trainig Platform",
+    description: "Stream and broadcast videos in crystal-clear quality",
+    image: img1,
   },
   {
+    id: 2,
     title: "Software Service Solutions",
     description: "Plan, track, and manage projects with precision tools.",
-    img: "/img2.jpg",
+    image: img2,
   },
   {
-    title: "UI/UX Design Services",
-    description: "Design systems and experiences users love.",
-    img: "/img3.jpg",
-  },
-  {
-    title: "Mobile App Development",
-    description: "Build fast, scalable, modern mobile apps.",
-    img: "/img4.jpg",
-  },
-  {
-    title: "Web Development",
-    description: "Create websites that convert and scale.",
-    img: "/img5.jpg",
-  },
-  {
-    title: "AI-Powered Tools",
-    description: "Leverage AI to automate and enhance solutions.",
-    img: "/img6.jpg",
+    id: 3,
+    title: "Software Service Solutions",
+    description: "Plan, track, and manage projects with precision tools.",
+    image: img3,
   },
 ];
 
-const Banner = () => {
-        useEffect(() => {
-    Aos.init({
-      duration: 800, // animation duration in ms
-      easing: 'ease-out',
-      once: true, // whether animation should happen only once - while scrolling down
-    });
-  }, []);
-  const [hoveringSlider, setHoveringSlider] = useState(false);
+const App = () => {
+  const containerRef = useRef(null);
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const [cardOrder, setCardOrder] = useState([1, 2, 3]);
+  const [isSwapping, setIsSwapping] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    vertical: true,
-    verticalSwiping: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 700,
-    arrows: false,
+  const headlineVisible = useIsVisible(0);
+
+  const handleMouseMove = (e) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      setParallax({ x: x * 20, y: y * 20 });
+    }
   };
 
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setIsSwapping(true);
+      setTimeout(() => {
+        setCardOrder(prevOrder => {
+          const newOrder = [...prevOrder];
+          const first = newOrder.shift();
+          newOrder.push(first);
+          return newOrder;
+        });
+        setIsSwapping(false);
+      }, 600);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
-    <div data-aos="fade-up" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0d0f1c] via-[#0b0d1a] to-[#0a0e18] text-white overflow-hidden">
+    <div
+      ref={containerRef}
+      className="relative flex flex-col items-center min-h-screen text-white overflow-hidden bg-black font-sans pt-30"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Background Particles */}
+      <div className="absolute inset-0 z-0">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white opacity-10 animate-particle"
+            style={{
+              width: `${Math.random() * 5 + 2}px`,
+              height: `${Math.random() * 5 + 2}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 6 + 12}s`,
+              animationDelay: `${Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
 
-      {/* Background Stars Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1f293750_1px,transparent_1px)] [background-size:24px_24px] z-0" />
+      {/* Background Glows */}
+      <div className="absolute top-0 left-0 w-90 h-90 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
+<div className="absolute top-0 right-0 w-100 h-72 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
+ <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
+  <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Content Container */}
-      <div className="z-10 text-center px-4 md:px-20 max-w-5xl">
-        <div className="text-sm mb-4">
-          <span className="bg-[#1d2939] text-teal-300 px-3 py-1 rounded-full">
-            🌟 Smarter Idea, instant solutions
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-          We are your <span className="text-cyan-400">Software</span><br />
-          Development Team in The Cloud
+      <style>
+        {`
+        @keyframes fade-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes pop-in {
+          from {
+            transform: scale(0.9);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        @keyframes drift {
+          0% { transform: translateX(0) translateY(0); }
+          50% { transform: translateX(calc(var(--rand-x) * 10vw)) translateY(calc(var(--rand-y) * 10vh)); }
+          100% { transform: translateX(0) translateY(0); }
+        }
+        .animate-fade-up {
+          animation: fade-up 0.6s ease-out forwards;
+        }
+        .animate-pop-in {
+          animation: pop-in 0.22s ease-out forwards;
+        }
+        .animate-particle {
+          animation: drift linear infinite;
+        }
+        .card-container {
+          perspective: 1000px;
+        }
+      `}
+      </style>
+
+      {/* Main Content */}
+      <main className="relative z-10 flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4 text-center">
+        {/* Headline */}
+        <h1
+          className={`text-3xl md:text-7xl font-extrabold leading-tight tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-teal-600 to-slate-100`}
+        >
+          We are your Software Development Team in The Cloud
         </h1>
 
-        <button className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full mb-10 shadow hover:brightness-110 transition">
-          Contact Us
-        </button>
+        {/* Contact Button */}
+       <button className="mt-8 px-10 py-1 text-lg font-medium rounded-full bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 transition-colors shadow-lg flex items-center gap-2">
+  Contact Us <LuCircleArrowOutUpRight />
+</button>
 
-        {/* Slider Container */}
+        {/* Badge Chips */}
+        <div className="relative w-full mt-20">
+          {badges.map((badge, index) => (
+            <div
+              key={index}
+              className={`absolute px-4 py-2 my-19 text-lg rounded-full bg-gray-800 border border-gray-700 text-white shadow-lg ${badge.position}
+                transition-transform transition-opacity duration-300 ease-out
+                ${hovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+              `}
+              style={{
+                animationDelay: `${800 + index * 50}ms`,
+                transformOrigin: 'center',
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-3 w-3 inline-block mr-1 text-teal-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              {badge.text}
+            </div>
+          ))}
+        </div>
+
+        {/* Service Cards Container */}
         <div
-          className="relative max-w-3xl mx-auto rounded-3xl overflow-hidden group transition-all duration-500"
-          onMouseEnter={() => setHoveringSlider(true)}
-          onMouseLeave={() => setHoveringSlider(false)}
+          className="relative mb-50 w-2/3 h-[300px] flex items-center justify-center card-container"
+          onMouseEnter={() => {
+            setHovered(true);
+            setIsPaused(true);
+          }}
+          onMouseLeave={() => {
+            setHovered(false);
+            setIsPaused(false);
+          }}
         >
-          {/* Floating Tags (on hover only) */}
-          {hoveringSlider && (
-            <>
-              <div className="absolute left-[-160px] top-[40%] bg-[#1e293b] text-sm px-3 py-1 rounded-lg shadow border border-gray-700 transition-opacity">
-                💻 Website Development
-              </div>
-              <div className="absolute right-[-160px] top-[20%] bg-[#1e293b] text-sm px-3 py-1 rounded-lg shadow border border-gray-700 transition-opacity">
-                🎨 UI/UX Engineering
-              </div>
-              <div className="absolute left-[-160px] bottom-[10%] bg-[#1e293b] text-sm px-3 py-1 rounded-lg shadow border border-gray-700 transition-opacity">
-                📱 Mobile App Development
-              </div>
-              <div className="absolute right-[-160px] bottom-[10%] bg-[#1e293b] text-sm px-3 py-1 rounded-lg shadow border border-gray-700 transition-opacity">
-                🧠 Software Services
-              </div>
-            </>
-          )}
+          {serviceCards.map((card) => {
+            const cardIndex = cardOrder.findIndex(id => id === card.id);
+            const scale = cardIndex === 0 ? 1.2 : (cardIndex === 1 ? 0.95 : 0.9);
+            const zIndex = 3 - cardIndex;
+            const topPosition = cardIndex === 0 ? '70%' : (cardIndex === 1 ? '45%' : '50%');
+            const opacity = cardIndex === 0 ? 1 : 0.7;
 
-          {/* Slider */}
-          <div className="bg-[#0f1a2c] bg-opacity-80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl">
-            <Slider {...settings}>
-              {cards.map((card, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col sm:flex-row items-center justify-between gap-4"
-                >
-                  {/* Image */}
-                  <div className="sm:w-1/2 flex justify-center items-center p-4">
+            return (
+              <div
+                key={card.id}
+                className={`absolute w-full max-w-xl h-full transition-all duration-700 ease-in-out ${
+                  hovered && cardIndex === 0 ? 'shadow-[0_0_40px_rgba(0,255,200,0.8)]' : ''
+                }`}
+                style={{
+                  transform: `translate(-50%, -50%) translate3d(${parallax.x * (cardIndex + 1) / 4}px, ${parallax.y * (cardIndex + 1) / 4}px, 0) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                  top: topPosition,
+                  left: '50%',
+                }}
+              >
+                <div className="card card-side bg-base-100 shadow-sm rounded-[30px] h-full p-4 flex items-center">
+                  <figure className="flex-shrink-0">
                     <img
-                      src={card.img}
+                      src={card.image}
                       alt={card.title}
-                      className="rounded-2xl shadow-xl object-cover h-[300px] w-full"
+                      className="w-50 h-40 object-cover rounded-l-[30px]"
                     />
-                  </div>
-                  {/* Text Content */}
-                  <div className="sm:w-1/2 p-6 text-white text-left flex flex-col justify-center">
-                    <h3 className="text-xl font-bold mb-3">{card.title}</h3>
-                    <p className="text-gray-300 mb-5">{card.description}</p>
-                    <button className="bg-gradient-to-r from-white to-gray-100 text-black px-5 py-2 rounded-full shadow hover:brightness-105 transition">
-                      Discover
-                    </button>
+                  </figure>
+                  <div className="card-body p-4 flex flex-col justify-between" style={{ maxWidth: 'calc(100% - 10rem)' }}>
+                    <h3 className="card-title text-lg md:text-xl">{card.title}</h3>
+                    <p className="mb-4">{card.description}</p>
+                    <div className="card-actions justify-start">
+                      <button className="btn bg-teal-600 hover:bg-teal-950 ml-50 px-4 py-1">Discover</button>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </Slider>
-          </div>
+              </div>
+            );
+          })}
         </div>
-      </div>
+      </main>
     </div>
   );
 };
 
-export default Banner;
+export default App;

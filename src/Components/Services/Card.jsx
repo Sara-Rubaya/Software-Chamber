@@ -24,7 +24,7 @@ const ServiceCard = ({ title, description, isHighlighted = false }) => {
     : "bg-gray-100 text-gray-800";
 
   return (
-    <div className={`rounded-3xl p-8 shadow-xl transform transition-transform duration-300 hover:scale-105 ${cardClasses}`}>
+    <div id="services" className={`rounded-3xl p-8 shadow-xl transform transition-transform duration-300 hover:scale-105 ${cardClasses}`}>
       <h3 className="text-3xl font-bold mb-4">
         {title}
       </h3>
