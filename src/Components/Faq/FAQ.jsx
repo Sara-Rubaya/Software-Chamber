@@ -36,23 +36,27 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-neutral-50 flex items-center justify-center p-4 sm:p-8 font-['Inter']">
-      <div className="w-full max-w-4xl mx-auto py-12">
+      <div className="w-full  mx-auto py-12">
         
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-black leading-tight">
-            Comprehensive Answers to the Most <br/> <BsStars className="inline-block text-[#27B4A3]" />
-            Common Questions 
-            <span className=" text-[#A5A5A5]"> About Our Services</span>
-            
-               and How We <span className='text-[#A5A5A5]'> Work</span> <FaArrowTrendDown className="inline-block align-middle rotate-180" />
-              
-            
-          </h1>
-        </div>
+     <div className="text-center mb-16">
+  <h1 className="    text-black leading-tight">
+    Comprehensive Answers to the Most <br /> 
+    <BsStars className="inline-block text-[#27B4A3]" size={35} /> Common Questions <br />
+    <span className="text-[#A5A5A5]">
+      About Our <br /> Services
+    </span>{' '}
+    and How We <span className="text-[#A5A5A5]"> Work</span>{' '}
+    <FaArrowTrendDown
+      className="inline-block align-middle rotate-180"
+      size={35}
+    />
+  </h1>
+</div>
+
 
         {/* FAQ Main Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 border-b-2 border-neutral-700 pb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 border-b-2 border-neutral-700 pb-4">
           <h2 className="text-6xl sm:text-7xl font-bold mb-4  text-black sm:mb-0">
             FAQ
           </h2>
@@ -63,7 +67,7 @@ export default function App() {
         </div>
 
         {/* FAQ List */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           {faqData.map((item, index) => (
             <FAQItem
               key={index}
@@ -82,7 +86,7 @@ export default function App() {
 // Reusable component for a single FAQ item
 const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
-    <div className="bg-white  rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+    <div data-aos="fade-up" className="bg-white  rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
       <div
         className="flex justify-between items-center"
         onClick={onToggle}

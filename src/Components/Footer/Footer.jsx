@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="relative min-h-screen bg-[#05080f] text-white overflow-hidden flex items-center justify-center px-4 md:px-8 py-16">
+    <footer data-aos="fade-up" className="relative min-h-screen bg-[#05080f] text-white overflow-hidden flex items-center justify-center px-4 md:px-8 py-16">
       {/* Top-left glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
 

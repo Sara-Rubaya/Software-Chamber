@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Aos from "aos";
 
 const cards = [
   {
@@ -37,6 +38,13 @@ const cards = [
 ];
 
 const Banner = () => {
+        useEffect(() => {
+    Aos.init({
+      duration: 800, // animation duration in ms
+      easing: 'ease-out',
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+  }, []);
   const [hoveringSlider, setHoveringSlider] = useState(false);
 
   const settings = {
@@ -52,7 +60,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0d0f1c] via-[#0b0d1a] to-[#0a0e18] text-white overflow-hidden">
+    <div data-aos="fade-up" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0d0f1c] via-[#0b0d1a] to-[#0a0e18] text-white overflow-hidden">
 
       {/* Background Stars Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#1f293750_1px,transparent_1px)] [background-size:24px_24px] z-0" />

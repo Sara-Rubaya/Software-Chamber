@@ -14,7 +14,7 @@ const items = [
 
 const Marquee = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-[#05080f] py-20 space-y-8 ">
+    <div data-aos="fade-up" className="relative w-full overflow-hidden bg-[#05080f] py-20 space-y-8 ">
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 py-10">
         <span
   className="inline-flex items-center px-4 py-2 rounded-full text-white text-sm font-semibold shadow-lg"

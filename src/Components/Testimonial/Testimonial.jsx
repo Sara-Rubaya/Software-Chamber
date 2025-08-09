@@ -77,7 +77,7 @@ const Testimonial = () => {
         `}
       </style>
 
-      <div className="w-full max-w-5xl mx-auto py-12 text-center relative z-10">
+      <div data-aos="fade-up" className="w-full max-w-5xl mx-auto py-12 text-center relative z-10">
         <div className="mb-4">
           <span className="inline-block px-4 py-1 text-sm font-medium text-emerald-400 bg-neutral-800 rounded-full border border-neutral-700">
             ★ Smarter idea, instant solutions

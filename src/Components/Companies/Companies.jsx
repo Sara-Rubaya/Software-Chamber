@@ -4,7 +4,7 @@ import { MdOutlineArrowCircleRight } from 'react-icons/md';
 
 const Companies = () => {
     return (
-        <div className="bg-gradient-to-br from-[#05080f] via-[#0a0f1c] to-[#1a1f2e] text-white font-sans min-h-screen relative">
+        <div data-aos="fade-up" className="bg-gradient-to-br from-[#05080f] via-[#0a0f1c] to-[#1a1f2e] text-white font-sans min-h-screen relative">
             {/* Add your two blurred circles here */}
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute top-0 left-0 w-72 h-72 bg-[#00fff7] opacity-10 rounded-full blur-3xl pointer-events-none" />

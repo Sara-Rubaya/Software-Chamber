@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.05em;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Optional: set different font-sizes per heading level */
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+/* ...and so on if needed */

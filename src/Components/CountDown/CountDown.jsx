@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Font.css";
 import { BsStars } from "react-icons/bs";
 import { FaArrowTrendDown } from "react-icons/fa6";
+import Aos from "aos";
 
 const CountDown = () => {
   const [techPartners, setTechPartners] = useState(0);
@@ -46,8 +47,16 @@ const CountDown = () => {
     countTo(1000, setSatisfiedCustomers);
   };
 
+    useEffect(() => {
+    Aos.init({
+      duration: 800, // animation duration in ms
+      easing: 'ease-out',
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+  }, []);
+
   return (
-    <section
+    <section  data-aos="fade-up"
       ref={sectionRef}
       className="py-16 px-6 bg-gray-50 text-gray-800 font-sans"
     >

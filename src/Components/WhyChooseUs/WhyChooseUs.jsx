@@ -11,7 +11,7 @@ import {
 // FeatureCard with divider line and uniform icon background color
 const FeatureCard = ({ title, description, Icon }) => {
   return (
-    <div className="bg-white rounded-3xl p-6 shadow-xl w-72 h-72 flex flex-col justify-between transition-transform duration-300 hover:scale-105 text-black">
+    <div data-aos="fade-up" className="bg-white rounded-3xl p-6 shadow-xl w-72 h-72 flex flex-col justify-between transition-transform duration-300 hover:scale-105 text-black">
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-black">{title}</h3>
         <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#2dd4bf]">

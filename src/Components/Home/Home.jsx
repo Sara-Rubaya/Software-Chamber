@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Banner from '../Banner/Banner';
 import CountDown from '../CountDown/CountDown';
 import Card from '../Services/Card';
@@ -8,10 +8,13 @@ import Marque from '../Marque/Marque';
 import SoftwareProcess from '../SoftwareProcess/SoftwareProcess';
 import FAQ from '../Faq/FAQ';
 import Testimonial from '../Testimonial/Testimonial';
+import Contact from '../Contact/Contact';
+
 
 const Home = () => {
+
     return (
-        <div>
+        <div >
           <Banner></Banner>
           <CountDown></CountDown>
           <Card></Card>
@@ -21,6 +24,7 @@ const Home = () => {
           <Marque></Marque>
           <FAQ></FAQ>
           <Testimonial></Testimonial>
+          <Contact></Contact>
         </div>
     );
 };

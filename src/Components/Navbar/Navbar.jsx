@@ -14,7 +14,7 @@ const Navbar = () => {
           className="w-10 h-10 rounded-md shadow-md"
         />
         <div className="leading-tight">
-          <h1 className="text-lg font-semibold">Software</h1>
+          <h4 className=" font-semibold">Software</h4>
           <p className="text-xs tracking-wide text-gray-300">Chamber</p>
         </div>
       </div>

@@ -123,7 +123,7 @@ const SoftwareProcess = () => {
   }, []);
 
   return (
-    <div
+    <div data-aos="fade-up"
       className="min-h-screen text-center px-6 py-12 select-none relative flex flex-col items-center justify-center"
       style={{
         overflow: "hidden",

@@ -1,11 +1,12 @@
-import React from 'react';
+
 import { BsStars } from 'react-icons/bs';
 
 
 
 const Card = () => {
+   
   return (
-    <div className="bg-white font-sans text-gray-800">
+    <div  data-aos="fade-up" className="bg-white font-sans text-gray-800">
       <ServicesSection />
     </div>
   );
