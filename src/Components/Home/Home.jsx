@@ -5,6 +5,7 @@ import Card from '../Services/Card';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 import Companies from '../Companies/Companies';
 import Marque from '../Marque/Marque';
+import SoftwareProcess from '../SoftwareProcess/SoftwareProcess';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
           <Banner></Banner>
           <CountDown></CountDown>
           <Card></Card>
+          <SoftwareProcess></SoftwareProcess>
           <WhyChooseUs></WhyChooseUs>
           <Companies></Companies>
           <Marque></Marque>
