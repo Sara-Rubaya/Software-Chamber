@@ -7,6 +7,7 @@ import Companies from '../Companies/Companies';
 import Marque from '../Marque/Marque';
 import SoftwareProcess from '../SoftwareProcess/SoftwareProcess';
 import FAQ from '../Faq/FAQ';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
           <Companies></Companies>
           <Marque></Marque>
           <FAQ></FAQ>
+          <Testimonial></Testimonial>
         </div>
     );
 };
