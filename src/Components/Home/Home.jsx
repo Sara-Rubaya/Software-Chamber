@@ -6,6 +6,7 @@ import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 import Companies from '../Companies/Companies';
 import Marque from '../Marque/Marque';
 import SoftwareProcess from '../SoftwareProcess/SoftwareProcess';
+import FAQ from '../Faq/FAQ';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
           <WhyChooseUs></WhyChooseUs>
           <Companies></Companies>
           <Marque></Marque>
+          <FAQ></FAQ>
         </div>
     );
 };
