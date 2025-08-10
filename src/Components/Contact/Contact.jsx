@@ -27,7 +27,7 @@ export default function App() {
           {/* Left side with the image only on large screens */}
           <div className="hidden lg:block w-full h-140 bg-neutral-300 mt-15 rounded-2xl overflow-hidden">
             <img
-              src="/src/assets/man.png"
+              src="https://i.ibb.co.com/SDYBXJyf/man.png"
               alt="Man smiling"
               className="w-full h-full object-cover"
             />

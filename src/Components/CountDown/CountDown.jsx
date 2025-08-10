@@ -100,7 +100,7 @@ const CountDown = () => {
           style={{ marginLeft: "-50px" }}
         >
           <img
-            src="/src/assets/Rectangle 6.png"
+            src="https://i.ibb.co.com/8gLQwC74/Rectangle-6.png"
             alt="Team Collaboration"
             className="rounded-xl shadow-2xl object-cover"
             style={{ width: "510px", height: "474px" }}

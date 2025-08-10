@@ -1,15 +1,15 @@
 import React from "react";
 
 const items = [
-  { text: "Fintech", img: "/src/assets/image.png" },
-  { text: "Health Care", img: "/src/assets/image (1).png" },
-  { text: "Developers", img: "/src/assets/image (2).png" },
-  { text: "Software", img: "/src/assets/image (3).png" },
-  { text: "Entertainment", img: "/src/assets/image (4).png" },
-  { text: "Hospitality", img: "/src/assets/Rectangle 4223.png" },
-  { text: "Manufacturing", img: "/src/assets/Rectangle 4225.png" },
-  { text: "Energy", img: "/src/assets/Rectangle 4226.png" },
-  { text: "Auto Motive", img: "/src/assets/image (4).png" },
+  { text: "Fintech", img: "https://i.ibb.co.com/XZHwZXSc/image.png" },
+  { text: "Health Care", img: "https://i.ibb.co.com/KpYMN1g7/image-1.png" },
+  { text: "Developers", img: "https://i.ibb.co.com/1fhV8tP8/image-2.png" },
+  { text: "Software", img: "https://i.ibb.co.com/5WPCfTQP/image-3.png" },
+  { text: "Entertainment", img: "https://i.ibb.co.com/39q016xq/image-4.png" },
+  { text: "Hospitality", img: "https://i.ibb.co.com/QF67RtYQ/Rectangle-4223.png" },
+  { text: "Manufacturing", img: "https://i.ibb.co.com/7xp2CWbW/Rectangle-4225.png" },
+  { text: "Energy", img: "https://i.ibb.co.com/ycDMdd4H/Rectangle-4226.png" },
+  { text: "Auto Motive", img: "https://i.ibb.co.com/39q016xq/image-4.png" },
 ];
 
 const Marquee = () => {

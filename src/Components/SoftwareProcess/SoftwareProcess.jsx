@@ -184,62 +184,86 @@ const SoftwareProcess = () => {
       </button>
 
       {/* Globe + timeline */}
-      <div
+     <>
+  <div
+    className="timeline-container"
+    style={{
+      position: "absolute",
+      bottom: 0,
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "66.66vw",
+      maxWidth: "1100px",
+      pointerEvents: "none",
+      userSelect: "none",
+      zIndex: 5,
+    }}
+  >
+    <svg
+      viewBox="-205 0 370 40"
+      width="90%"
+      height="auto"
+      style={{ overflow: "visible", marginBottom: "-65px" }}
+    >
+      {/* Arc */}
+      <path
+        d={arcPath()}
+        fill="none"
+        stroke="#0ccaba"
+        strokeWidth="3"
+        strokeDasharray="500"
+        strokeDashoffset={arcDrawn ? 0 : 500}
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "66.66vw",
-          maxWidth: "1100px",
-          pointerEvents: "none",
-          userSelect: "none",
-          zIndex: 5,
+          transition: "stroke-dashoffset 1s ease-out",
         }}
-      >
-        <svg
-          viewBox="-205 0 370 40"
-          width="90%"
-          height="auto"
-          style={{ overflow: "visible", marginBottom: "-65px" }}
-        >
-          {/* Arc */}
-          <path
-            d={arcPath()}
-            fill="none"
-            stroke="#0ccaba"
-            strokeWidth="3"
-            strokeDasharray="500"
-            strokeDashoffset={arcDrawn ? 0 : 500}
-            style={{
-              transition: "stroke-dashoffset 1s ease-out",
-            }}
-          />
+      />
 
-          {/* Steps */}
-          {steps.map((step, idx) => (
-            <ProcessStep
-              key={idx}
-              step={step}
-              visible={visibleSteps.includes(idx)}
-            />
-          ))}
-        </svg>
-
-        {/* Globe */}
-        <img
-          src="/src/assets/globe.png"
-          alt="Globe"
-          style={{
-            width: "100%",
-            height: "auto",
-            display: "block",
-            opacity: 1,
-          }}
-          draggable={false}
-          loading="lazy"
+      {/* Steps */}
+      {steps.map((step, idx) => (
+        <ProcessStep
+          key={idx}
+          step={step}
+          visible={visibleSteps.includes(idx)}
         />
-      </div>
+      ))}
+    </svg>
+
+    {/* Globe */}
+    <img
+      src="https://i.ibb.co.com/qYHZQ4VM/globe.png"
+      alt="Globe"
+      style={{
+        width: "100%",
+        height: "auto",
+        display: "block",
+        opacity: 1,
+      }}
+      draggable={false}
+      loading="lazy"
+    />
+  </div>
+
+  {/* Inline CSS for responsiveness */}
+  <style>{`
+    @media (max-width: 640px) {
+      .timeline-container {
+        width: 66.66vw !important;
+        max-width: 1100px !important;
+      }
+      .timeline-container svg {
+        viewBox: -205 0 370 40 !important;
+        width: 90% !important;
+        margin-bottom: -65px !important;
+        overflow: visible !important;
+      }
+      .timeline-container img {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  `}</style>
+</>
+
     </div>
   );
 };

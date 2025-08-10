@@ -48,7 +48,7 @@ const Footer = () => {
         {/* Column 3: Image */}
         <div className="flex justify-center md:justify-end">
           <img
-            src="/src/assets/Footer-img.png"
+            src="https://i.ibb.co.com/93Y5NnqT/Footer-img.png"
             alt="Team Working"
             className="relative md:absolute bottom-0 right-0 z-0 w-2/3 sm:w-1/4 md:w-1/3 lg:w-1/4 opacity-80 -translate-y-[230px] md:translate-y-5"
           />
